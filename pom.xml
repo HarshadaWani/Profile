@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.5.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>demoProfile-1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demoProfile-1</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		 <special-agent-version>1.7.4</special-agent-version> <!-- 1.7.5-SNAPSHOT -->
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+
+ <!--  <dependency>
+    <groupId>com.uber.jaeger</groupId>
+    <artifactId>jaeger-core</artifactId>
+    <version>0.18.0</version>
+ </dependency>-->
+	<dependency>
+<!--  Allows you to write Integration Rules for Special Agent -->
+  <groupId>io.opentracing.contrib.specialagent</groupId>
+  <artifactId>opentracing-specialagent-api</artifactId>
+  <version>${special-agent-version}</version>
+</dependency>
+
+<dependency>
+  <!-- Allows the Integration Rules to use OpenTracing API -->
+  <groupId>io.opentracing.contrib.specialagent</groupId>
+  <artifactId>opentracing-adapter</artifactId>
+  <version>${special-agent-version}</version>
+</dependency>
+
+ <dependency>
+  <!--Allows the Integration Rules be tested with SpecialAgent's `AgentRunner` -->
+  <groupId>io.opentracing.contrib.specialagent</groupId>
+  <artifactId>opentracing-specialagent</artifactId>
+  <version>${special-agent-version}</version>
+  <type>test-jar</type>
+  <scope>test</scope>
+</dependency>
+
+
+
+  <dependency>
+   <groupId>io.opentelemetry</groupId>
+   <artifactId>opentelemetry-extension-auto-annotations</artifactId>
+   <version>0.8.0</version>
+ </dependency>
+ <dependency>
+   <groupId>io.opentelemetry</groupId>
+   <artifactId>opentelemetry-api</artifactId>
+   <version>0.8.0</version>
+ </dependency>
+ 
+ 
+ <!--  <dependency>
+    <groupId>io.opentracing.contrib</groupId>
+    <artifactId>opentracing-spring-web-autoconfigure</artifactId>
+    <version>0.0.2</version>
+</dependency>-->
+
+		  <dependency>
+    <groupId>io.opentracing.contrib</groupId>
+    <artifactId>opentracing-spring-jaeger-starter</artifactId>
+    <version>0.2.0</version>
+</dependency>
+
+<dependency>
+    <groupId>io.opentracing.contrib</groupId>
+    <artifactId>opentracing-spring-jaeger-web-starter</artifactId>
+    <version>1.0.3</version>
+</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
